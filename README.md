@@ -18,6 +18,23 @@ make install
 make run # creates virtual environment (.venv) and installs dependencies if necessary.
 ```
 
+**Setting up environment variables**
+
+The project reads runtime configuration from a `.env` file (or the environment). An example is provided in `.env.example`.
+
+To create a `.env` from the example and edit it:
+
+```bash
+cp .env.example .env
+# then edit .env and set PROVIDER and OPENAI_API as needed
+```
+
+After creating `.env`, run:
+
+```bash
+make run
+```
+
 ### Slash commands
 
  - `/ct <float>`    : Set temperature (0.0–3.0)

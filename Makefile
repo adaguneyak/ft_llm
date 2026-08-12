@@ -21,6 +21,8 @@ update:
 
 install: requirements.txt
 	@if [ ! -d "$(VENV)" ]; then echo "Creating virtual environment..."; python3 -m venv $(VENV); fi
+	# Create a .env from example if it doesn't exist
+	@if [ ! -f ".env" ]; then if [ -f ".env.example" ]; then cp .env.example .env && echo "Created .env from .env.example"; else echo "No .env.example found to create .env"; fi; fi
 	@echo "Environment active, installing dependencies from requirements.txt";
 	@$(MAKE) -f $(THIS_FILE) update
 	@$(PIP) install -r requirements.txt --quiet
